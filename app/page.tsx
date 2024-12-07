@@ -1,7 +1,8 @@
 'use client'
 import Image from 'next/image'
 import backgroundImg from '../public/mosh.jpg'
-import LogoNav from '../public/logoLast.png'
+import LogoNav from '../public/logoBgWhite.jpg'
+import LogoNav1 from '../public/logoLast.png'
 import traktorImg from '../public/traktor.jpg'
 import beansImg from '../public/beansImg.png'
 import downloadIcon from '../public/downloadIcon.png'
@@ -288,7 +289,7 @@ export default function Home () {
             </div>
             <div data-aos='fade-down' className='mt-6 sm:mt-10'>
               <Image
-                className='w-full bg-cover h-screen'
+                className='w-full bg-cover h-screen max-sm:h-96'
                 src={traktorImg}
                 alt='Tractor'
               />
@@ -478,7 +479,7 @@ export default function Home () {
               <Image
                 onClick={() => toTop()}
                 className='h-10 hover:cursor-pointer w-auto md:h-16'
-                src={LogoNav}
+                src={LogoNav1}
                 alt='logo'
               />
             </div>
