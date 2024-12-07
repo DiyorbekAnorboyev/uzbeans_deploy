@@ -11,7 +11,6 @@ import mosh1 from '../public/mosh1.jpg'
 import lovia from '../public/lovia.png'
 import * as React from 'react'
 import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import './globals.css'
 // import Carousel from 'react-bootstrap/Carousel';
@@ -37,8 +36,7 @@ import { BsTelephone } from 'react-icons/bs'
 import { GoMoveToTop } from 'react-icons/go'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
-import { useTranslation } from 'react-i18next'
-import i18n from '../lib/i18n'
+// import i18n from '../lib/i18n'
 import Link from 'next/link'
 import 'aos/dist/aos.css' // Import AOS CSS globally
 
@@ -55,9 +53,9 @@ export default function Home () {
   const [isOpenMenu, setIsOpenMenu] = React.useState(false)
 
   const handleLanguageChange = (lang: string) => {
-    i18n?.changeLanguage(lang) // Change language dynamically
+    console.log(lang)
+    // Change language dynamically
   }
-  const { t } = useTranslation()
 
   const [displaySize, setDisplaySize] = React.useState(0)
 
@@ -155,9 +153,9 @@ export default function Home () {
                 />
               </div>
               <div className='hidden w-full sm:flex space-x-4 md:flex justify-between items-center px-10'>
-                <div className='hover:cursor-pointer'>{t('main')}</div>
-                <div className='hover:cursor-pointer'>{t('about')}</div>
-                <div className='hover:cursor-pointer'>{t('catalog')}</div>
+                <div className='hover:cursor-pointer'>Главная</div>
+                <div className='hover:cursor-pointer'>О нас</div>
+                <div className='hover:cursor-pointer'>Каталог</div>
                 <div className='hover:cursor-pointer'>+998(95)-089-99-44</div>
                 <div className='hover:cursor-pointer'>albois200@mail.ru</div>
               </div>
@@ -205,13 +203,13 @@ export default function Home () {
                       <DropdownMenuContent className='w-auto bg-green-500'>
                         <div className='flex flex-col space-y-4'>
                           <div className='sm:hidden px-4 py-2 hover:cursor-pointer'>
-                            {t('main')}
+                            Главная
                           </div>
                           <div className='sm:hidden px-4 py-2 hover:cursor-pointer'>
-                            {t('about')}
+                            О нас
                           </div>
                           <div className='sm:hidden px-4 py-2 hover:cursor-pointer'>
-                            {t('catalog')}
+                            Каталог
                           </div>
                           <div className='sm:hidden px-4 py-2 hover:cursor-pointer'>
                             +998(95)-089-99-44
@@ -230,11 +228,9 @@ export default function Home () {
             {/* Main Content */}
             <div className='flex flex-col text-white md:flex-row justify-between items-center px-6 sm:px-10 md:px-20 mt-12'>
               <div className='md:pl-10 text-center md:text-left'>
-                <p className='text-2xl sm:text-3xl font-bold'>
-                  {t('main_bob')}
-                </p>
+                <p className='text-2xl sm:text-3xl font-bold'>Зеленая фасоль</p>
                 <span className='font-bold text-sm sm:text-base'>
-                  {t('about_mi')}{' '}
+                  Мы поставляем высококачественные и чистые бобовые продукты{' '}
                 </span>
               </div>
               <div className='mt-6 md:mt-0 flex items-center rounded bg-opacity-10'>
@@ -246,9 +242,7 @@ export default function Home () {
                       alt='download'
                     />
                   </div>
-                  <div className='text-sm sm:text-base'>
-                    {t('download_catalog')}
-                  </div>
+                  <div className='text-sm sm:text-base'>Скачать каталог</div>
                 </div>
               </div>
             </div>
@@ -259,25 +253,37 @@ export default function Home () {
       <div className='flex flex-col px-6 sm:px-10 md:px-20 about-bg'>
         {/* Title Section */}
         <div className='text-center text-3xl sm:text-4xl md:text-6xl mt-10 md:mt-20 w-full'>
-          <span>{t('title')}</span>
+          <span>Агропредприятие Uzbeans</span>
         </div>
 
         {/* Content Section */}
         <div className='flex flex-col md:flex-row mt-10 md:mt-20 gap-10 md:gap-20 pb-20'>
           {/* Left Column */}
           <div className='w-full'>
-            <p className='text-2xl sm:text-4xl md:text-5xl'>{t('about_cm')}</p>
+            <p className='text-2xl sm:text-4xl md:text-5xl'>О Uzbeans</p>
             <p className='mt-6 sm:mt-10 text-base sm:text-xl md:text-2xl'>
-              <span className='font-bold'>{t('welcome_cm')}</span> —{' '}
-              {t('txt_moldu')}
+              <span className='font-bold'>Добро пожаловать в Uzbeans</span> —{' '}
+              молодая и амбициозная компания, основанная в 2024 году в городе
+              Чуст, Наманганская область, Узбекистан. Мы специализируемся на
+              переработке, очистке и
               <br />
-              <span className='font-bold'>{t('txt_upakov')}</span>,{' '}
-              {t('txt_cozdat')}
+              <span className='font-bold'>
+                упаковке высококачественных бобовых и сельскохозяйственных
+                продуктов
+              </span>
+              , создавая продукты, которые сочетают в себе натуральность и
+              свежесть, ценящиеся на мировом рынке.
             </p>
             <div className='mt-6 sm:mt-10 text-base sm:text-xl md:text-2xl'>
               <p>
-                <span className='font-bold'>{t('txt_uspexa')}</span> —{' '}
-                {t('txt_sochet')}
+                <span className='font-bold'>Наш секрет успеха</span> — это
+                сочетание передовых технологий и глубокого понимания
+                потребностей наших клиентов. Мы выбираем лучшие бобовые культуры
+                со всех уголков Узбекистана, чтобы предложить вам продукты,
+                соответствующие самым высоким международным стандартам качества.
+                Благодаря многократному контролю на каждом этапе производства,
+                Uzbeans гарантирует чистоту, безопасность и сохранение всех
+                полезных свойств продуктов.
               </p>
             </div>
             <div data-aos='fade-down' className='mt-6 sm:mt-10'>
@@ -296,12 +302,19 @@ export default function Home () {
             </div>
             <div>
               <p className='mt-10 sm:mt-20 text-base sm:text-xl md:text-2xl'>
-                {t('txt_gordim')} <br />
-                {t('txt_strem')}{' '}
+                Мы гордимся тем, что создаем устойчивые и взаимовыгодные
+                партнерства с нашими клиентами и поставщиками. Наша цель не
+                только поставлять продукты, но и строить долгосрочные отношения,
+                основанные на доверии и качестве. <br />
+                Мы стремимся выходить на новые рынки и расширять географию
+                поставок, чтобы сделать узбекские продукты известными и
+                востребованными в мире.{' '}
               </p>
             </div>
             <div className='mt-6 sm:mt-10 text-base sm:text-xl md:text-2xl font-bold '>
-              {t('txt_uzbeans')}{' '}
+              Uzbeans — ваш надежный партнер в мире высококачественных и
+              экологически чистых сельскохозяйственных продуктов, которым можно
+              доверять.{' '}
             </div>
           </div>
         </div>
@@ -316,7 +329,7 @@ export default function Home () {
               data-aos='zoom-in'
               className='text-2xl sm:text-3xl md:text-4xl text-center w-full bg-green-900 text-white p-2'
             >
-              {t('txt_products')}{' '}
+              Наши продукты{' '}
             </p>
           </div>
 
@@ -334,7 +347,7 @@ export default function Home () {
               />
               <div className='absolute bottom-0 left-0 w-full h-52 bg-gradient-to-t from-green-900 via-transparent to-transparent flex items-end justify-start'>
                 <p className='text-white text-lg font-bold px-4 py-2'>
-                  {t('txt_nohot')}
+                  Зеленая чечевица (Маш)
                 </p>
               </div>
             </div>
@@ -351,7 +364,7 @@ export default function Home () {
               />
               <div className='absolute bottom-0 left-0 w-full h-52 bg-gradient-to-t from-green-900 via-transparent to-transparent flex items-end justify-start'>
                 <p className='text-white text-lg font-bold px-4 py-2'>
-                  {t('txt_lovia')}
+                  Красная фасоль
                 </p>
               </div>
             </div>
@@ -364,9 +377,7 @@ export default function Home () {
                 alt='beans'
               />
               <div className='absolute bottom-0 left-0 w-full h-52 bg-gradient-to-t from-green-900 via-transparent to-transparent flex items-end justify-start'>
-                <p className='text-white text-lg font-bold px-4 py-2'>
-                  {t('txt_yongoq')}
-                </p>
+                <p className='text-white text-lg font-bold px-4 py-2'>Арахис</p>
               </div>
             </div>
 
@@ -378,9 +389,7 @@ export default function Home () {
                 alt='beans'
               />
               <div className='absolute bottom-0 left-0 w-full h-52 bg-gradient-to-t from-green-900 via-transparent to-transparent flex items-end justify-start'>
-                <p className='text-white text-lg font-bold px-4 py-2'>
-                  {t('txt_yong')}
-                </p>
+                <p className='text-white text-lg font-bold px-4 py-2'>Нут</p>
               </div>
             </div>
           </div>
@@ -393,7 +402,7 @@ export default function Home () {
             href='/products'
           >
             {' '}
-            {t('products')}
+            Больше продуктов
           </Link>
         </div>
       </div>
@@ -404,7 +413,7 @@ export default function Home () {
           <div className='px-6 md:px-20 h-1/2 bg-white'>
             <div>
               <p className=' text-3xl md:text-4xl text-green-900 font-bold text-center md:text-left'>
-                {t('location')}
+                Наше местоположение
               </p>
             </div>
             <div className='w-full'>
@@ -427,9 +436,7 @@ export default function Home () {
           <div className='h-1/2 w-full bg-green-400'></div>
 
           <div className='w-full px-6 md:px-20 pt-10 contact-card'>
-            <h3 className='font-bold text-2xl md:text-3xl'>
-              {t('txt_contacts')}
-            </h3>
+            <h3 className='font-bold text-2xl md:text-3xl'>Контакты</h3>
             <div className='text-lg md:text-xl'>
               <div className='flex flex-col md:flex-row mt-5 justify-between items-center'>
                 <p className='flex gap-3 text-sm md:text-base'>
@@ -437,8 +444,8 @@ export default function Home () {
                   <BsTelephone size={22} className='hover:cursor-pointer' />
                 </p>
                 <p className='flex gap-3 mt-3 md:mt-0 text-sm md:text-base'>
-                  <Map size={22} className='hover:cursor-pointer' />{' '}
-                  {t('loc_main')} <br />
+                  <Map size={22} className='hover:cursor-pointer' /> Узбекистан,
+                  Наманганская область <br />
                 </p>
               </div>
 
@@ -449,13 +456,13 @@ export default function Home () {
                 </p>
                 <p className='text-sm md:text-base'>
                   {' '}
-                  {t('loc_second')} <br />
+                  Город Чуст, улица Истиклол, №21 <br />
                 </p>
               </div>
             </div>
             <h4 className='font-bold mt-5 text-2xl md:text-3xl'>
               {' '}
-              {t('txt_sotvi')}
+              Мы в социальных сетях
             </h4>
             <div className='flex justify-center md:justify-start py-5 gap-4 items-center'>
               <InstagramIcon size={26} className='hover:cursor-pointer' />{' '}
@@ -476,7 +483,7 @@ export default function Home () {
               />
             </div>
             <div className='text-sm md:text-base text-black text-center md:text-left'>
-              {t('txt_footer')}
+              Агропредприятие Uzbeans. Все права защищены.
             </div>
           </div>
         </div>
