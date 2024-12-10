@@ -1,9 +1,6 @@
-// // next-i18next.config.ts
-// const config = {
-//   i18n: {
-//     defaultLocale: 'en',
-//     locales: ['en', 'ru'],
-//   },
-// };
+const i18nConfig = {
+  locales: ["en", "ru",],
+  defaultLocale: "ru",
+};
 
-// export default config;
+export default i18nConfig;

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import logo from '../../public/logoWhite.png';
+import logo from '../../../public/logoWhite.png';
 import { FaGlobe, FaInstagram, FaPhone, FaTelegram } from 'react-icons/fa';
 
 const FirstProductPage = () => {

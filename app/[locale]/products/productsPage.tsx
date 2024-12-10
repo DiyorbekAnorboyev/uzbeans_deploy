@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import React from 'react'
-import logo from '../../public/logoWhite.png' // Image import
-import logoBlack from '../../public/logoLast.png'
+import logo from '../../../public/logoWhite.png' // Image import
+import logoBlack from '../../../public/logoLast.png'
 
-import noxot from '../../public/noxot.jpg'
-import mosh from '../../public/mosh1.jpg'
-import lovia from '../../public/lovia.png'
-import beans from '../../public/beans.jpg'
-import yangoq from '../../public/yangoq.jpg'
-import oqlovia from '../../public/oqlovia.png'
+import noxot from '../../../public/noxot.jpg'
+import mosh from '../../../public/mosh1.jpg'
+import lovia from '../../../public/lovia.png'
+import beans from '../../../public/beans.jpg'
+import yangoq from '../../../public/yangoq.jpg'
+import oqlovia from '../../../public/oqlovia.png'
 
 import { FaGlobe, FaInstagram, FaPhone, FaTelegram } from 'react-icons/fa'
 import OneProductCard from './oneProductCard'
