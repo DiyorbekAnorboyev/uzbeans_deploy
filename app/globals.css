@@ -162,3 +162,7 @@ iframe {
     @apply bg-background text-foreground;
   }
 }
+
+.h-45{
+  height: 45%;
+}

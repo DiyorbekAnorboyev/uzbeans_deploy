@@ -60,15 +60,24 @@ export default function Home () {
   const router = useRouter()
   const currentPathname = usePathname()
 
-  const handleLanguageChange = async (language: string) => {
-    const newPathname = currentPathname.replace(
-      `/${currentLocale}`,
-      `/${language}`
-    )
+  const handleLanguageChange = React.useCallback(
+    async (newLocale: string) => {
+      document.cookie = `NEXT_LOCALE=${newLocale};expires=${new Date(
+        Date.now() + 30 * 24 * 60 * 60 * 1000
+      ).toUTCString()};path=/`
 
-    await i18n.changeLanguage(language)
-    router.replace(newPathname)
-  }
+      const newPathname = currentPathname.replace(
+        `/${currentLocale}`,
+        `/${newLocale}`
+      )
+      console.log(i18n.language)
+
+      await i18n.changeLanguage(newLocale)
+      router.replace(newPathname)
+      router.refresh()
+    },
+    [currentLocale, currentPathname, router, i18n]
+  )
 
   const [displaySize, setDisplaySize] = React.useState(0)
 
@@ -104,7 +113,7 @@ export default function Home () {
   const { t } = useTranslation()
 
   return (
-    <div className=''>
+    <div className='text-white'>
       <div className='fixed bottom-10 right-8 z-10'>
         <div
           onClick={() => toTop()}
@@ -275,9 +284,9 @@ export default function Home () {
         </div>
 
         {/* Content Section */}
-        <div className='flex flex-col md:flex-row mt-10 md:mt-20 gap-10 md:gap-20 pb-20'>
+        <div className='flex flex-col md:flex-row mt-10 md:mt-20 gap-10 md:gap-20 pb-10'>
           {/* Left Column */}
-          <div className='w-full'>
+          <div className='w-full sm:relative'>
             <p className='text-2xl sm:text-4xl md:text-5xl'>{t('about_cm')}</p>
             <p className='mt-6 sm:mt-10 text-base sm:text-xl md:text-2xl'>
               <span className='font-bold'>{t('welcome_cm')}</span> —{' '}
@@ -295,7 +304,7 @@ export default function Home () {
             <div className='mt-6 sm:mt-10'>
               <Image
                 data-aos='fade-down'
-                className='w-full bg-cover h-screen max-sm:h-96'
+                className='w-full sm:absolute sm:-bottom-20 bg-cover h-45 max-sm:h-96'
                 src={traktorImg}
                 alt='Tractor'
               />
@@ -328,7 +337,7 @@ export default function Home () {
       <div className='bg_products'>
         <div className='relative min-h-screen'>
           {/* Title */}
-          <div>
+          <div className='pt-32'>
             <p
               data-aos='zoom-in'
               className='text-2xl sm:text-3xl md:text-4xl text-center w-full bg-green-900 text-white p-2'
@@ -480,7 +489,7 @@ export default function Home () {
             <div className='w-32 md:w-40'>
               <Image
                 onClick={() => toTop()}
-                className='h-10 hover:cursor-pointer w-auto md:h-16'
+                className='h-8 hover:cursor-pointer w-auto md:h-12'
                 src={LogoNav1}
                 alt='logo'
               />
