@@ -2,6 +2,8 @@ import Image from 'next/image';
 import React from 'react';
 import logo from '../../../public/logoWhite.png';
 import { FaGlobe, FaInstagram, FaPhone, FaTelegram } from 'react-icons/fa';
+import { LiaTelegramPlane } from 'react-icons/lia'
+
 
 const FirstProductPage = () => {
   return (
@@ -19,7 +21,7 @@ const FirstProductPage = () => {
       {/* Contact Information */}
       <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-4 sm:gap-0 px-4 sm:px-10">
         <div className="flex gap-2 items-center text-lg sm:text-2xl">
-          <FaPhone /> <FaTelegram /> +998(95)-089-99-44
+          <FaPhone /> <LiaTelegramPlane /> +998(95)-089-99-44
         </div>
         <div className="flex gap-2 items-center text-lg sm:text-2xl">
           <FaInstagram /> uzbeans

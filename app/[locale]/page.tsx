@@ -4,7 +4,7 @@ import backgroundImg from '../../public/mosh.jpg'
 import LogoNav from '../../public/logoWhite.png'
 import LogoNav1 from '../../public/logoLast.png'
 import traktorImg from '../../public/traktor.jpg'
-import beansImg from '../../public/beansImg.png'
+import beansImg from '../../public/new-beans.png'
 import downloadIcon from '../../public/downloadIcon.png'
 import noxot from '../../public/noxot.jpg'
 import yangoq from '../../public/yangoq.jpg'
@@ -32,7 +32,9 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { IoMenu } from 'react-icons/io5'
 import { InstagramIcon, Map, MessageCircle, YoutubeIcon } from 'lucide-react'
-import { FaTelegram, FaVectorSquare } from 'react-icons/fa'
+import { CiLocationOn } from 'react-icons/ci'
+import { LiaTelegramPlane } from 'react-icons/lia'
+
 import { BsTelephone } from 'react-icons/bs'
 import { GoMoveToTop } from 'react-icons/go'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
@@ -100,28 +102,50 @@ export default function Home () {
     }
   }, [])
 
-  const toTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
+  const [isVisible, setIsVisible] = useState(false)
+
+  const handleScroll = () => {
+    if (window.scrollY > 10) {
+      setIsVisible(true)
+    } else {
+      setIsVisible(false)
+    }
   }
+
+  const toTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   React.useEffect(() => {
     AOS.init({ duration: 1000 }) // Initialize AOS (duration can be customized)
   }, [])
   const { t } = useTranslation()
 
+  const openPdf = () => {
+    // Replace the URL below with the actual URL of your PDF file
+    const pdfUrl = '/website.pdf';
+    window.open(pdfUrl, '_blank'); // Opens the PDF in a new tab
+  };
+
   return (
     <div className='text-white'>
-      <div className='fixed bottom-10 right-8 z-10'>
-        <div
-          onClick={() => toTop()}
-          className='p-2 bg-green-900 bg-opacity-50 rounded-full'
-        >
-          <GoMoveToTop className='h-12 w-12 hover:cursor-pointer max-sm:h-10 max-sm:w-10' />
+      {isVisible && (
+        <div className='fixed bottom-10 right-8 z-10'>
+          <div
+            onClick={toTop}
+            className='p-2 bg-green-900 bg-opacity-50 rounded-full'
+          >
+            <GoMoveToTop className='h-12 w-12 hover:cursor-pointer max-sm:h-10 max-sm:w-10' />
+          </div>
         </div>
-      </div>
+      )}
       {/* main */}
       <div className='w-full'>
         <div className='relative w-full h-[100vh] overflow-hidden'>
@@ -170,15 +194,19 @@ export default function Home () {
               <div className='flex-shrink-0'>
                 <Image
                   onClick={() => toTop()}
-                  className='w-auto h-10 sm:h-14 hover:cursor-pointer'
+                  className='w-auto h-8 sm:h-12 hover:cursor-pointer'
                   src={LogoNav}
                   alt='Logo'
                 />
               </div>
-              <div className='hidden w-full sm:flex space-x-4 md:flex justify-between items-center px-10'>
+              <div className='hidden w-full sm:flex space-x-4 text-xl md:flex justify-between items-center px-10'>
                 <div className='hover:cursor-pointer'>{t('main')}</div>
                 <div className='hover:cursor-pointer'>{t('about')}</div>
-                <div className='hover:cursor-pointer'>{t('catalog')}</div>
+                <div className='hover:cursor-pointer'>
+                  <Link className=' hover:cursor-pointer' href='/products'>
+                    {t('catalog')}
+                  </Link>
+                </div>
                 <div className='hover:cursor-pointer'>+998(95)-089-99-44</div>
                 <div className='hover:cursor-pointer'>albois200@mail.ru</div>
               </div>
@@ -232,7 +260,12 @@ export default function Home () {
                             {t('about')}
                           </div>
                           <div className='sm:hidden px-4 py-2 hover:cursor-pointer'>
-                            {t('catalog')}
+                            <Link
+                              className=' hover:cursor-pointer'
+                              href='/products'
+                            >
+                              {t('catalog')}
+                            </Link>
                           </div>
                           <div className='sm:hidden px-4 py-2 hover:cursor-pointer'>
                             +998(95)-089-99-44
@@ -251,23 +284,23 @@ export default function Home () {
             {/* Main Content */}
             <div className='flex flex-col text-white md:flex-row justify-between items-center px-6 sm:px-10 md:px-20 mt-12'>
               <div className='md:pl-10 text-center md:text-left'>
-                <p className='text-2xl sm:text-3xl font-bold'>
+                <p className='text-2xl sm:text-4xl font-bold'>
                   {t('main_bob')}
                 </p>
-                <span className='font-bold text-sm sm:text-base'>
+                <span className='font-semibold text-sm sm:text-base'>
                   {t('about_mi')}
                 </span>
               </div>
               <div className='mt-6 md:mt-0 flex items-center rounded bg-opacity-10'>
-                <div className='flex items-center gap-4 px-4 py-2 rounded-full bg-white bg-opacity-40 sm:rounded-l-full'>
-                  <div className='rounded-full bg-green-800 bg-opacity-90 p-2'>
+                <div onClick={openPdf} className='flex items-center sm:w-96 sm:-mx-64 gap-4 px-2 py-2 rounded-full bg-white bg-opacity-40 sm:rounded-l-full'>
+                  <div className='rounded-full bg-green-800 bg-opacity-90 p-3'>
                     <Image
                       src={downloadIcon}
                       className='h-5 w-5'
                       alt='download'
                     />
                   </div>
-                  <div className='text-sm sm:text-base'>
+                  <div className='text-sm sm:text-2xl font-semibold'>
                     {t('download_catalog')}
                   </div>
                 </div>
@@ -277,7 +310,7 @@ export default function Home () {
         </div>
       </div>
       {/* About */}
-      <div className='flex flex-col px-6 sm:px-10 md:px-20 about-bg'>
+      <div className='flex flex-col px-6 sm:px-10 md:px-16 about-bg'>
         {/* Title Section */}
         <div className='text-center text-3xl sm:text-4xl md:text-6xl mt-10 md:mt-20 w-full'>
           <span>{t('title')}</span>
@@ -301,10 +334,10 @@ export default function Home () {
                 {t('txt_sochet')}
               </p>
             </div>
-            <div className='mt-6 sm:mt-10'>
+            <div className='mt-6 w-full sm:mt-10'>
               <Image
                 data-aos='fade-down'
-                className='w-full sm:absolute sm:-bottom-20 bg-cover h-45 max-sm:h-96'
+                className='w-full sm:absolute sm:-bottom-24 bg-cover h-45 max-sm:h-96'
                 src={traktorImg}
                 alt='Tractor'
               />
@@ -347,9 +380,9 @@ export default function Home () {
           </div>
 
           {/* Product Grid */}
-          <div className='mt-32 sm:mt-40 px-6 sm:px-10 md:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full'>
+          <div className='mt-32 sm:mt-40 px-6 sm:px-10 md:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full'>
             {/* Card 1: Takes 2 columns on larger screens */}
-            <div className='lg:col-span-2 bg-slate-400 relative shadow-lg overflow-hidden h-56 sm:h-64'>
+            <div className='lg:col-span-3 bg-slate-400 relative shadow-lg overflow-hidden h-56 sm:h-64'>
               <Image
                 data-aos='fade-right'
                 className='w-full h-full object-cover'
@@ -364,7 +397,7 @@ export default function Home () {
             </div>
 
             {/* Card 2 */}
-            <div className='bg-slate-600 relative shadow-lg overflow-hidden h-56 sm:h-64'>
+            <div className='bg-slate-600 lg:col-span-2 relative shadow-lg overflow-hidden h-56 sm:h-64'>
               <Image
                 data-aos='fade-left'
                 className='w-full h-full object-cover'
@@ -379,7 +412,7 @@ export default function Home () {
             </div>
 
             {/* Card 3 */}
-            <div className='bg-slate-400 relative shadow-lg overflow-hidden h-56 sm:h-64'>
+            <div className='lg:col-span-2 bg-slate-400  relative shadow-lg overflow-hidden h-56 sm:h-64'>
               <Image
                 className='w-full h-full object-cover'
                 src={yangoq}
@@ -393,7 +426,7 @@ export default function Home () {
             </div>
 
             {/* Card 4: Takes 2 columns on larger screens */}
-            <div className='lg:col-span-2 bg-slate-600 relative shadow-lg overflow-hidden h-56 sm:h-64'>
+            <div className='lg:col-span-3 bg-slate-600 relative shadow-lg overflow-hidden h-56 sm:h-64'>
               <Image
                 className='w-full h-full object-cover'
                 src={noxot}
@@ -411,7 +444,7 @@ export default function Home () {
         {/* Button Section */}
         <div className='bg-white h-40 w-full flex justify-center items-center'>
           <Link
-            className='bg-green-600 hover:cursor-pointer rounded-full text-lg sm:text-xl md:text-2xl p-3 px-5'
+            className='bg-green-600 hover:cursor-pointer rounded-full text-lg sm:text-lg md:text-1xl p-3 px-5'
             href='/products'
           >
             {t('products')}
@@ -458,7 +491,7 @@ export default function Home () {
                   <BsTelephone size={22} className='hover:cursor-pointer' />
                 </p>
                 <p className='flex gap-3 mt-3 md:mt-0 text-sm md:text-base'>
-                  <Map size={22} className='hover:cursor-pointer' />{' '}
+                  <CiLocationOn size={24} className='hover:cursor-pointer' />{' '}
                   {t('loc_main')} <br />
                 </p>
               </div>
@@ -478,7 +511,7 @@ export default function Home () {
             </h4>
             <div className='flex justify-center md:justify-start py-5 gap-4 items-center'>
               <InstagramIcon size={26} className='hover:cursor-pointer' />{' '}
-              <FaTelegram size={26} className='hover:cursor-pointer' />{' '}
+              <LiaTelegramPlane size={26} className='hover:cursor-pointer' />{' '}
               <MessageCircle className='hover:cursor-pointer' size={26} />{' '}
               <YoutubeIcon className='hover:cursor-pointer' size={26} />
               <p className='text-xl md:text-3xl'>uzbeans</p>
@@ -489,12 +522,12 @@ export default function Home () {
             <div className='w-32 md:w-40'>
               <Image
                 onClick={() => toTop()}
-                className='h-8 hover:cursor-pointer w-auto md:h-12'
+                className='h-7 hover:cursor-pointer w-auto md:h-10'
                 src={LogoNav1}
                 alt='logo'
               />
             </div>
-            <div className='text-sm md:text-base text-black text-center md:text-left'>
+            <div className='text-sm md:text-base text-green-700 text-center md:text-left'>
               {t('txt_footer')}
             </div>
           </div>
