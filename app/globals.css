@@ -41,14 +41,14 @@ body {
 .products_bg {
   background-image: url('../public/bg-green.png');
   /* background-color:rgb(100, 206, 96); */
-  height: 100vh;
+  height: 100%;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
 }
 
 .white_Bg_Products {
-  background-image: url('../public/background-01.png');
+  background-image: url('../public/bg-white.png');
   height: 100%;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
@@ -57,7 +57,7 @@ body {
 }
 
 .bg_products {
-  background-image: url('../public/background-01.png');
+  background-image: url('../public/bg-white.png');
   height: 100%;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
