@@ -130,9 +130,9 @@ export default function Home () {
 
   const openPdf = () => {
     // Replace the URL below with the actual URL of your PDF file
-    const pdfUrl = '/website.pdf';
-    window.open(pdfUrl, '_blank'); // Opens the PDF in a new tab
-  };
+    const pdfUrl = '/website.pdf'
+    window.open(pdfUrl, '_blank') // Opens the PDF in a new tab
+  }
 
   return (
     <div className='text-white'>
@@ -292,11 +292,14 @@ export default function Home () {
                 </span>
               </div>
               <div className='mt-6 md:mt-0 flex items-center rounded bg-opacity-10'>
-                <div onClick={openPdf} className='flex items-center sm:w-96 sm:-mx-64 gap-4 px-2 py-2 rounded-full bg-white bg-opacity-40 sm:rounded-l-full'>
-                  <div className='rounded-full bg-green-800 bg-opacity-90 p-3'>
+                <div
+                  onClick={openPdf}
+                  className='flex items-center sm:w-96 sm:-mx-64 gap-4 px-2 py-2 rounded-full bg-white bg-opacity-40 sm:rounded-l-full'
+                >
+                  <div className='rounded-full bg-green-800 bg-opacity-90 p-2'>
                     <Image
                       src={downloadIcon}
-                      className='h-5 w-5'
+                      className='h-7 w-7'
                       alt='download'
                     />
                   </div>
@@ -321,23 +324,23 @@ export default function Home () {
           {/* Left Column */}
           <div className='w-full sm:relative'>
             <p className='text-2xl sm:text-4xl md:text-5xl'>{t('about_cm')}</p>
-            <p className='mt-6 sm:mt-10 text-base sm:text-xl md:text-2xl'>
+            <p className='mt-6 sm:mt-10 text-base sm:text-xl md:text-xl'>
               <span className='font-bold'>{t('welcome_cm')}</span> —{' '}
               {t('txt_moldu')}
               <br />
               <span className='font-bold'>{t('txt_upakov')}</span>
               {t('txt_cozdat')}
             </p>
-            <div className='mt-6 sm:mt-10 text-base sm:text-xl md:text-2xl'>
+            <div className='mt-6 sm:mt-10 text-base sm:text-xl md:text-xl'>
               <p>
                 <span className='font-bold'>{t('txt_uspexa')}</span> —{' '}
                 {t('txt_sochet')}
               </p>
             </div>
-            <div className='mt-6 w-full sm:mt-10'>
+            <div className='h-6 w-full sm:mt-10'>
               <Image
                 data-aos='fade-down'
-                className='w-full sm:absolute sm:-bottom-24 bg-cover h-45 max-sm:h-96'
+                className='w-full sm:absolute sm:-bottom-24 bg-cover h-1/2 h-25rem'
                 src={traktorImg}
                 alt='Tractor'
               />
@@ -355,11 +358,11 @@ export default function Home () {
               />
             </div>
             <div>
-              <p className='mt-10 sm:mt-20 text-base sm:text-xl md:text-2xl'>
+              <p className='mt-10 sm:mt-20 text-base sm:text-xl md:text-xl'>
                 {t('txt_gordim')} <br /> {t('txt_strem')}{' '}
               </p>
             </div>
-            <div className='mt-6 sm:mt-10 text-base sm:text-xl md:text-2xl font-bold '>
+            <div className='mt-6 sm:mt-10 text-base sm:text-xl md:text-xl font-bold '>
               {t('txt_uzbeans')}{' '}
             </div>
           </div>
@@ -370,9 +373,9 @@ export default function Home () {
       <div className='bg_products'>
         <div className='relative min-h-screen'>
           {/* Title */}
-          <div className='pt-32'>
+          <div className='pt-40'>
             <p
-              data-aos='zoom-in'
+              // data-aos='zoom-in'
               className='text-2xl sm:text-3xl md:text-4xl text-center w-full bg-green-900 text-white p-2'
             >
               {t('txt_products')}{' '}
@@ -380,7 +383,7 @@ export default function Home () {
           </div>
 
           {/* Product Grid */}
-          <div className='mt-32 sm:mt-40 px-6 sm:px-10 md:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full'>
+          <div className='mt-32 sm:mt-14 px-6 sm:px-10 md:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full'>
             {/* Card 1: Takes 2 columns on larger screens */}
             <div className='lg:col-span-3 bg-slate-400 relative shadow-lg overflow-hidden h-56 sm:h-64'>
               <Image
@@ -442,7 +445,7 @@ export default function Home () {
         </div>
 
         {/* Button Section */}
-        <div className='bg-white h-40 w-full flex justify-center items-center'>
+        <div className=' h-40 w-full flex justify-center items-center'>
           <Link
             className='bg-green-600 hover:cursor-pointer rounded-full text-lg sm:text-lg md:text-1xl p-3 px-5'
             href='/products'
@@ -478,57 +481,59 @@ export default function Home () {
             </div>
           </div>
 
-          <div className='h-1/2 w-full bg-green-400'></div>
+          <div className='bg-green-50-50 '>
+            <div className='h-1/2 w-full '></div>
 
-          <div className='w-full px-6 md:px-20 pt-10 contact-card'>
-            <h3 className='font-bold text-2xl md:text-3xl'>
-              {t('txt_contacts')}
-            </h3>
-            <div className='text-lg md:text-xl'>
-              <div className='flex flex-col md:flex-row mt-5 justify-between items-center'>
-                <p className='flex gap-3 text-sm md:text-base'>
-                  +998(95)-089-99-44{' '}
-                  <BsTelephone size={22} className='hover:cursor-pointer' />
-                </p>
-                <p className='flex gap-3 mt-3 md:mt-0 text-sm md:text-base'>
-                  <CiLocationOn size={24} className='hover:cursor-pointer' />{' '}
-                  {t('loc_main')} <br />
-                </p>
+            <div className='w-full px-6 md:px-20 pt-10 bg-black/50 contact-card'>
+              <h3 className='font-bold text-2xl md:text-3xl'>
+                {t('txt_contacts')}
+              </h3>
+              <div className='text-lg md:text-xl'>
+                <div className='flex flex-col md:flex-row mt-5 justify-between items-center'>
+                  <p className='flex gap-3 text-sm md:text-base'>
+                    +998(95)-089-99-44{' '}
+                    <BsTelephone size={22} className='hover:cursor-pointer' />
+                  </p>
+                  <p className='flex gap-3 mt-3 md:mt-0 text-sm md:text-base'>
+                    <CiLocationOn size={24} className='hover:cursor-pointer' />{' '}
+                    {t('loc_main')} <br />
+                  </p>
+                </div>
+
+                <div className='flex flex-col md:flex-row justify-between items-center'>
+                  <p className='flex gap-3 text-sm md:text-base'>
+                    albois2000@mail.ru{' '}
+                    <MessageCircle size={22} className='hover:cursor-pointer' />
+                  </p>
+                  <p className='text-sm md:text-base'>
+                    {t('loc_second')} <br />
+                  </p>
+                </div>
               </div>
-
-              <div className='flex flex-col md:flex-row justify-between items-center'>
-                <p className='flex gap-3 text-sm md:text-base'>
-                  albois2000@mail.ru{' '}
-                  <MessageCircle size={22} className='hover:cursor-pointer' />
-                </p>
-                <p className='text-sm md:text-base'>
-                  {t('loc_second')} <br />
-                </p>
+              <h4 className='font-bold mt-5 text-2xl md:text-3xl'>
+                {t('txt_sotvi')}
+              </h4>
+              <div className='flex justify-center md:justify-start py-5 gap-4 items-center'>
+                <InstagramIcon size={26} className='hover:cursor-pointer' />{' '}
+                <LiaTelegramPlane size={26} className='hover:cursor-pointer' />{' '}
+                <MessageCircle className='hover:cursor-pointer' size={26} />{' '}
+                <YoutubeIcon className='hover:cursor-pointer' size={26} />
+                <p className='text-xl md:text-3xl'>uzbeans</p>
               </div>
             </div>
-            <h4 className='font-bold mt-5 text-2xl md:text-3xl'>
-              {t('txt_sotvi')}
-            </h4>
-            <div className='flex justify-center md:justify-start py-5 gap-4 items-center'>
-              <InstagramIcon size={26} className='hover:cursor-pointer' />{' '}
-              <LiaTelegramPlane size={26} className='hover:cursor-pointer' />{' '}
-              <MessageCircle className='hover:cursor-pointer' size={26} />{' '}
-              <YoutubeIcon className='hover:cursor-pointer' size={26} />
-              <p className='text-xl md:text-3xl'>uzbeans</p>
-            </div>
-          </div>
 
-          <div className='flex justify-between items-center px-8 md:px-20 bg-white py-4'>
-            <div className='w-32 md:w-40'>
-              <Image
-                onClick={() => toTop()}
-                className='h-7 hover:cursor-pointer w-auto md:h-10'
-                src={LogoNav1}
-                alt='logo'
-              />
-            </div>
-            <div className='text-sm md:text-base text-green-700 text-center md:text-left'>
-              {t('txt_footer')}
+            <div className='flex justify-between items-center px-8 md:px-20 bg-white py-4'>
+              <div className='w-32 md:w-40'>
+                <Image
+                  onClick={() => toTop()}
+                  className='h-7 hover:cursor-pointer w-auto md:h-10'
+                  src={LogoNav1}
+                  alt='logo'
+                />
+              </div>
+              <div className='text-sm md:text-base text-green-700 text-center md:text-left'>
+                {t('txt_footer')}
+              </div>
             </div>
           </div>
         </div>

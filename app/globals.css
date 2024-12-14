@@ -17,7 +17,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .main-bg {
@@ -30,7 +30,7 @@ body {
 }
 
 .about-bg {
-  background-image: url('../public/bg-green.png');
+  background-image: url('../public/background-01.png');
   /* background-color:rgb(100, 206, 96); */
   height: 100%;
   background-position: center; /* Center the image */
@@ -39,7 +39,16 @@ body {
 }
 
 .products_bg {
-  background-image: url('../public/bg-green.png');
+  background-image: url('../public/background-01.png');
+  /* background-color:rgb(100, 206, 96); */
+  height: 100%;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+.bg-green-50-50 {
+  background-image: url('../public/background-03.png');
   /* background-color:rgb(100, 206, 96); */
   height: 100%;
   background-position: center; /* Center the image */
@@ -48,7 +57,7 @@ body {
 }
 
 .white_Bg_Products {
-  background-image: url('../public/bg-white.png');
+  background-image: url('../public/background-02.png');
   height: 100%;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
@@ -57,7 +66,7 @@ body {
 }
 
 .bg_products {
-  background-image: url('../public/bg-white.png');
+  background-image: url('../public/background-02.png');
   height: 100%;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
@@ -135,7 +144,6 @@ body {
 
 .contact-card {
   color: white;
-  background-color: rgb(7, 82, 7); /* Example background */
   font-family: Arial, sans-serif;
 }
 
@@ -165,4 +173,11 @@ iframe {
 
 .h-45{
   height: 45%;
+}
+
+
+@media only screen and (max-width: 640px) {
+  .h-25rem{
+    height: 600px;
+  }
 }
