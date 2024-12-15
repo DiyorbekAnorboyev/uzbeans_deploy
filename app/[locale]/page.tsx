@@ -337,7 +337,7 @@ export default function Home () {
                 {t('txt_sochet')}
               </p>
             </div>
-            <div className='h-6 w-full sm:mt-10'>
+            <div className='w-full sm:mt-10'>
               <Image
                 data-aos='fade-down'
                 className='w-full sm:absolute sm:-bottom-24 bg-cover h-1/2 h-25rem'
@@ -484,12 +484,12 @@ export default function Home () {
           <div className='bg-green-50-50 '>
             <div className='h-1/2 w-full '></div>
 
-            <div className='w-full px-6 md:px-20 pt-10 bg-black/50 contact-card'>
+            <div className='w-full px-6 md:px-20 py-4 sm:py-0 sm:pt-10 bg-black/50 contact-card'>
               <h3 className='font-bold text-2xl md:text-3xl'>
                 {t('txt_contacts')}
               </h3>
               <div className='text-lg md:text-xl'>
-                <div className='flex flex-col md:flex-row mt-5 justify-between items-center'>
+                <div className='flex flex-col md:flex-row sm:mt-5 justify-between items-center'>
                   <p className='flex gap-3 text-sm md:text-base'>
                     +998(95)-089-99-44{' '}
                     <BsTelephone size={22} className='hover:cursor-pointer' />
@@ -513,7 +513,7 @@ export default function Home () {
               <h4 className='font-bold mt-5 text-2xl md:text-3xl'>
                 {t('txt_sotvi')}
               </h4>
-              <div className='flex justify-center md:justify-start py-5 gap-4 items-center'>
+              <div className='flex justify-center md:justify-start py-2 sm:py-5 gap-4 items-center'>
                 <InstagramIcon size={26} className='hover:cursor-pointer' />{' '}
                 <LiaTelegramPlane size={26} className='hover:cursor-pointer' />{' '}
                 <MessageCircle className='hover:cursor-pointer' size={26} />{' '}
