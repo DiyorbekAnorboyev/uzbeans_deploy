@@ -523,10 +523,10 @@ export default function Home () {
             </div>
 
             <div className='flex justify-between items-center px-8 md:px-20 bg-white py-4'>
-              <div className='zw-full md:w-40'>
+              <div className='w-full md:w-40'>
                 <Image
                   onClick={() => toTop()}
-                  className='h-7 hover:cursor-pointer w-full md:h-10'
+                  className='h-7 hover:cursor-pointer w-auto md:h-10'
                   src={LogoNav1}
                   alt='logo'
                 />
