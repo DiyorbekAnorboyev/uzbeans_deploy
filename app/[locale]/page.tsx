@@ -46,6 +46,8 @@ import 'aos/dist/aos.css' // Import AOS CSS globally
 import AOS from 'aos'
 import { useTranslation } from 'react-i18next'
 import { usePathname, useRouter } from 'next/navigation'
+import { FaPhone } from 'react-icons/fa'
+import { AiOutlinePhone } from 'react-icons/ai'
 
 type Checked = DropdownMenuCheckboxItemProps['checked']
 
@@ -190,7 +192,7 @@ export default function Home () {
           {/* Foreground Content */}
           <div className='relative flex flex-col justify-between h-screen pb-10 z-10'>
             {/* Navigation */}
-            <div className='flex w-full items-center pt-3 justify-between px-6 sm:px-12 lg:px-24 text-white'>
+            <div className='flex w-full items-center pt-8 justify-between px-6 sm:px-12 lg:px-24 text-white'>
               <div className='flex-shrink-0'>
                 <Image
                   onClick={() => toTop()}
@@ -199,7 +201,7 @@ export default function Home () {
                   alt='Logo'
                 />
               </div>
-              <div className='hidden w-full sm:flex space-x-4 text-xl md:flex justify-between items-center px-10'>
+              <div className='hidden w-full sm:ml-10 sm:flex space-x-4 text-xl md:flex justify-between items-center px-10'>
                 <div className='hover:cursor-pointer'>{t('main')}</div>
                 <div className='hover:cursor-pointer'>{t('about')}</div>
                 <div className='hover:cursor-pointer'>
@@ -207,8 +209,14 @@ export default function Home () {
                     {t('catalog')}
                   </Link>
                 </div>
-                <div className='hover:cursor-pointer'>+998(95)-089-99-44</div>
-                <div className='hover:cursor-pointer'>albois200@mail.ru</div>
+                <div className='flex gap-1 text-lg items-center hover:cursor-pointer'>
+                  <BsTelephone size={19} className='hover:cursor-pointer' />{' '}
+                  +998(95)-089-99-44{' '}
+                </div>
+                <div className='flex gap-1 text-lg items-center hover:cursor-pointer'>
+                  <MessageCircle size={19} className='hover:cursor-pointer' />
+                  albois200@mail.ru{' '}
+                </div>
               </div>
               <div className='flex gap-1'>
                 {/* Language Dropdown */}
@@ -267,11 +275,19 @@ export default function Home () {
                               {t('catalog')}
                             </Link>
                           </div>
-                          <div className='sm:hidden px-4 py-2 hover:cursor-pointer'>
-                            +998(95)-089-99-44
+                          <div className='flex gap-1 w-full px-2 items-center hover:cursor-pointer'>
+                            +998(95)-089-99-44{' '}
+                            <AiOutlinePhone
+                              size={18}
+                              className='hover:cursor-pointer'
+                            />{' '}
                           </div>
-                          <div className='sm:hidden px-4 py-2 hover:cursor-pointer'>
-                            albois200@mail.ru
+                          <div className='flex gap-1 items-center sm:hidden px-4 py-2 hover:cursor-pointer'>
+                            albois200@mail.ru{' '}
+                            <MessageCircle
+                              size={22}
+                              className='hover:cursor-pointer'
+                            />
                           </div>
                         </div>
                       </DropdownMenuContent>
@@ -283,7 +299,7 @@ export default function Home () {
 
             {/* Main Content */}
             <div className='flex flex-col text-white md:flex-row justify-between items-center px-6 sm:px-10 md:px-20 mt-12'>
-              <div className='md:pl-10 text-center md:text-left'>
+              <div className='text-center md:text-left'>
                 <p className='text-2xl sm:text-4xl font-bold'>
                   {t('main_bob')}
                 </p>
@@ -294,12 +310,12 @@ export default function Home () {
               <div className='mt-6 md:mt-0 flex items-center rounded bg-opacity-10'>
                 <div
                   onClick={openPdf}
-                  className='flex items-center sm:w-96 sm:-mx-64 gap-4 px-2 py-2 rounded-full bg-white bg-opacity-40 sm:rounded-l-full'
+                  className='flex items-center sm:w-96 sm:-mx-60 gap-4 px-2 py-2 rounded-full bg-white bg-opacity-40 sm:rounded-l-full'
                 >
-                  <div className='rounded-full bg-green-800 bg-opacity-90 p-2'>
+                  <div className='rounded-full bg-green-800 bg-opacity-90 p-4'>
                     <Image
                       src={downloadIcon}
-                      className='h-7 w-7'
+                      className='h-5 w-5'
                       alt='download'
                     />
                   </div>
@@ -458,7 +474,7 @@ export default function Home () {
       {/* Navigation Map */}
       <div>
         <div className='h-screen'>
-          <div className='px-6 md:px-20 h-1/2 bg-white'>
+          <div className=' h-1/2 bg-white'>  {/* //px-6 md:px-20 */}
             <div>
               <p className=' text-3xl md:text-4xl text-green-900 font-bold text-center md:text-left'>
                 {t('location')}{' '}
@@ -492,6 +508,7 @@ export default function Home () {
                 <div className='flex flex-col md:flex-row sm:mt-5 justify-between items-center'>
                   <p className='flex gap-3 text-sm md:text-base'>
                     +998(95)-089-99-44{' '}
+                    <CiLocationOn size={24} className='hover:cursor-pointer' />{' '}
                     <BsTelephone size={22} className='hover:cursor-pointer' />
                   </p>
                   <p className='flex gap-3 mt-3 md:mt-0 text-sm md:text-base'>

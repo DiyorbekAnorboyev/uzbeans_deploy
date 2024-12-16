@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import React from 'react'
 import logo from '../../../public/logoWhite.png' // Image import
@@ -12,6 +13,7 @@ import oqlovia from '../../../public/oqlovia.png'
 
 import { FaGlobe, FaInstagram, FaPhone, FaTelegram } from 'react-icons/fa'
 import OneProductCard from './oneProductCard'
+import { useTranslation } from 'react-i18next'
 
 const ProductsPage = () => {
   const data = [
@@ -84,12 +86,13 @@ const ProductsPage = () => {
   ]
 
   console.log(data[0].img)
+  const { t } = useTranslation()
 
   return (
     <div className='px-4 sm:px-8 lg:px-20 py-16 flex flex-col h-full w-full justify-between white_Bg_Products'>
       <div className='w-full flex items-center justify-center'>
         <div className='text-green-600 text-3xl sm:text-5xl lg:text-6xl font-bold text-center leading-snug'>
-          MUNG BEANS <br className='sm:hidden' /> FROM UZBEKISTAN
+          {t('txt_mung')}
         </div>
       </div>
 
